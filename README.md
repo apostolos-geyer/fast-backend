@@ -11,18 +11,39 @@ As of now, the project is in the initial stages with a focus on backend developm
 - User session management
 - Basic user CRUD operations
 
-### Roadmap
+### Roadmap:
 
+#### Setup
 - [x] Project initialization
-- [x] Backend setup with FastAPI
-- [x] User model creation
-- [x] Authentication implementation
-- [ ] Frontend development with React
-- [ ] Integration with Spotify API
-- [ ] Feature to compare music tastes
-- [ ] Friend system implementation
-- [ ] Deploying the application
-- [ ] Additional features based on feedback
+- [x] Connect to local database (database.py)
+
+#### User basics backend
+- [x] Implement user model
+
+- [ ] Implement user schemas (users/schemas.py)
+  - [x] Base schema
+  - [x] User creation schema
+  - [ ] User update schema
+  - [x] User in db schema
+  - [x] Authentication token for JWT
+  
+- [x] Implement user CRUD (users/crud.py)
+  - [x] create operations
+  - [x] read operations 
+  - [x] update operations
+  - [x] delete operations
+     
+- [x] Implement basic user endpoints (users/endpoints.py)
+  - [x] create user
+  - [x] get user/users
+  - [x] login (get token)
+  - [x] test login token endpoint (get me) 
+  - [ ] update user
+  - [ ] delete user 
+
+#### Next steps: 
+Current goal is to complete user basics, and then either move into getting a basic front end together or adding more models and databases. 
+
 
 ## Installation
 
