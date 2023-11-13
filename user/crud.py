@@ -69,21 +69,22 @@ def get_users(db: Session, skip: int = 0, limit: int = 100) -> list[schemas.User
 
 
 # UPDATE methods
-def update_user(db: Session, user_id: int, update: schemas.UserUpdate) -> models.User:
-    db_user = db.query(models.User).filter(models.User.id == user_id).first()
-    if db_user:
-        update_data = update.dict(exclude_unset=True)
-        if 'password' in update_data and update_data['password']:
-            hashed_password = auth.get_password_hash(update_data['password'])
-            db_user.hashed_password = hashed_password
-
-        for key, value in update_data.items():
-            if key not in ['password', 'password2']:  # Exclude password fields
-                setattr(db_user, key, value)
-
-        db.commit()
-        db.refresh(db_user)
-    return db_user
+# TODO: add a UserUpdate schema and update_user method, as well as necessary endpoints, auth methods, schemas, etc.
+# def update_user(db: Session, user_id: int, update: schemas.UserUpdate) -> models.User:
+#     db_user = db.query(models.User).filter(models.User.id == user_id).first()
+#     if db_user:
+#         update_data = update.dict(exclude_unset=True)
+#         if 'password' in update_data and update_data['password']:
+#             hashed_password = auth.get_password_hash(update_data['password'])
+#             db_user.hashed_password = hashed_password
+#
+#         for key, value in update_data.items():
+#             if key not in ['password', 'password2']:  # Exclude password fields
+#                 setattr(db_user, key, value)
+#
+#         db.commit()
+#         db.refresh(db_user)
+#     return db_user
 
 
 # DELETE methods
