@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from user.endpoints import user_router as user_router
-from auth.endpoints import router as auth_router
-from database import create_tables
+
+from app.api import user_router, session_router
+from app.database import create_tables
 
 app = FastAPI()
 
@@ -16,6 +16,6 @@ def lol():
     return {"lol": "lol"}
 
 
+app.include_router(session_router)
 app.include_router(user_router)
-app.include_router(auth_router)
 

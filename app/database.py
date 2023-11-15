@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 import os
@@ -21,16 +21,11 @@ engine = create_engine(SQLALCHEMY_DB_URL)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
 Base = declarative_base()
 
+
 def create_tables():
-    from user import models
-    models.Base.metadata.create_all(bind=engine)
+    from app.models.user import Base as UserBase
+    from app.models.user_session import Base as UserSessionBase
+    UserBase.metadata.create_all(bind=engine)
+    UserSessionBase.metadata.create_all(bind=engine)
