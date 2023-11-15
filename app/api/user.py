@@ -1,11 +1,11 @@
 from fastapi import Depends, APIRouter
 from sqlalchemy.orm import Session
 
-from backend import schemas, crud, services
-from backend.dependencies import get_db, get_session_user, cross_validate_user
+from app import schemas, crud, services
+from app.dependencies import get_db, get_session_user, cross_validate_user
 
 user_router = APIRouter(
-    prefix="/User"
+    prefix="/user"
 )
 
 @user_router.post("/", response_model=schemas.User)

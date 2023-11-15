@@ -3,9 +3,9 @@ from fastapi import Request
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-from backend import crud, schemas
-from backend.config import SECRET_KEY, ALGORITHM, pwd_context
-from backend.errors import UserCreationError, UserNotFoundError, UserAuthorizationError, UserUpdateError
+from app import crud, schemas
+from app.config import SECRET_KEY, ALGORITHM, pwd_context
+from app.errors import UserCreationError, UserNotFoundError, UserAuthorizationError, UserUpdateError
 
 
 def create_user(user: schemas.UserCreate, db: Session) -> schemas.User:

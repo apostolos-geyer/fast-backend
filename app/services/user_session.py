@@ -5,9 +5,9 @@ from fastapi import Response
 import jwt
 from sqlalchemy.orm import Session
 
-from backend import schemas, crud
-from backend.config import ACCESS_TOKEN_EXPIRE_MINUTES, SECRET_KEY, ALGORITHM
-from backend.errors import UserAuthorizationError
+from app import schemas, crud
+from app.config import ACCESS_TOKEN_EXPIRE_MINUTES, SECRET_KEY, ALGORITHM
+from app.errors import UserAuthorizationError
 
 
 def cross_validate_user(session_user: schemas.User,

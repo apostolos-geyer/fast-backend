@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from backend.api import user_router, session_router
-from backend.database import create_tables
+from app.api import user_router, session_router
+from app.database import create_tables
 
 app = FastAPI()
 

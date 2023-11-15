@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "music-project"
+name = "backend"
 version = "0.1.0"
 description = ""
 authors = ["1apostoli <79337131+1apostoli@users.noreply.github.com>"]

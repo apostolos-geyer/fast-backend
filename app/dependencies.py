@@ -2,9 +2,9 @@ from fastapi import Depends, Request
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-from backend import schemas, services
-from backend.config import oauth2_scheme
-from backend.database import SessionLocal
+from app import schemas, services
+from app.config import oauth2_scheme
+from app.database import SessionLocal
 
 
 def get_db():

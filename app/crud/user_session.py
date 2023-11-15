@@ -2,7 +2,7 @@ from datetime import timedelta, datetime
 
 from sqlalchemy.orm import Session
 
-from backend import models
+from app import models
 
 
 def create(db: Session, user_id: int) -> models.UserSession:
