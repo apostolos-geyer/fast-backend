@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from app import models
+from backend import models
 
 
 def create(db: Session, user: dict) -> models.User | None:

@@ -25,7 +25,7 @@ Base = declarative_base()
 
 
 def create_tables():
-    from app.models.user import Base as UserBase
-    from app.models.user_session import Base as UserSessionBase
+    from backend.models.user import Base as UserBase
+    from backend.models.user_session import Base as UserSessionBase
     UserBase.metadata.create_all(bind=engine)
     UserSessionBase.metadata.create_all(bind=engine)
