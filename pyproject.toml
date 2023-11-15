@@ -1,9 +1,5 @@
 [tool.poetry]
-<<<<<<< HEAD
 name = "fast-backend"
-=======
-name = "backend"
->>>>>>> old-repo/main
 version = "0.1.0"
 description = ""
 authors = ["1apostoli <79337131+1apostoli@users.noreply.github.com>"]
