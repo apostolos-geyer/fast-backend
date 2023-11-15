@@ -1,63 +1,33 @@
-# Music Social Media Project
+# Simple FastAPI based backend
 
 ## Introduction
-This project is a learning journey into full-stack development and databases. The aim is to create a music social media platform where users can connect their Spotify accounts, add friends, and compare their music tastes.
+A backend I was developing for a personal projects & learning. Realized that it would likely make a good template / starting point for my own future projects, so I've changed this repo to just be that backend... Lol 
 
 ### Current Status
-As of now, the project is in the initial stages with a focus on backend development using FastAPI and SQLAlchemy. The backend setup includes:
+As of now, the backend connects to a SQL Database using SQLAlchemy, and has a table for Users, and Sessions, as well as the following endpoints:
 
-- User account creation
-- User login with JWT authentication
-- User session management
-- Basic user CRUD operations
-
-### Roadmap:
-
-#### Setup
-- [x] Project initialization
-- [x] Connect to local database (database.py)
-
-#### User basics backend
-- [x] Implement user model
-
-- [ ] Implement user schemas (users/schemas.py)
-  - [x] Base schema
-  - [x] User creation schema
-  - [ ] User update schema
-  - [x] User in db schema
-  - [x] Authentication token for JWT
+POST ENDPOINTS:
+- `POST /user/` to create a user.
+- `POST /session/login` to login to an account (creates a session in the session database with a session id and a foreign key to the user)
+- `POST /session/logout` to logout of an account (deletes all sessions in the session database for a user)
+- `POST /session/auth` to get a short lived JWT Auth token, required to update or delete your account when logged in.
   
-- [x] Implement user CRUD (users/crud.py)
-  - [x] create operations
-  - [x] read operations 
-  - [x] update operations
-  - [x] delete operations
-     
-- [x] Implement basic user endpoints (users/endpoints.py)
-  - [x] create user
-  - [x] get user/users
-  - [x] login (get token)
-  - [x] test login token endpoint (get me) 
-  - [ ] update user
-  - [ ] delete user 
+GET ENDPOINTS:
+-  `GET /user/me` to get the user info for the user associated with the current session
+-  `GET /user/{user_id}` to get the user info associated with the user with {user_id}
+-  `GET /user/` to get a specified number of users, takes arguments `skip` and `limit`...
 
-#### Next steps: 
-Current goal is to complete user basics, and then either move into getting a basic front end together or adding more models and databases. 
+PUT ENDPOINTS:
+- `PUT /user/me` to update information about the user for the current session, requires auth.
 
+DELETE ENDPOINTS
+- `DELETE /user/me` to delete the current user, requires auth.
 
-## Installation
+im not givin yall detailed documentation this my shi go read the code. 
 
-Instructions for setting up the project locally.
-
-```bash
-# clone the repository
-git clone <repository-url>
-
-# navigate to the project directory
-cd <project-name>
-
-# install dependencies (assuming poetry is being used)
-poetry install
-
-# run the application
-uvicorn main:app --reload
+### Next steps:
+- Move over to asynchronous
+- Improve session model, perhaps switch to JWT tokens + refresh tokens, or at least switch session id's away from integers.
+- Implement user permission levels
+- Make it have more swag
+- Talk to a girl for the first time 
