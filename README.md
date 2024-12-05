@@ -1,3 +1,6 @@
+lol this was my first time doing anything web related i've come a long way.. keeping this to reflect on :)
+
+
 # Simple FastAPI based backend
 
 ## Introduction
